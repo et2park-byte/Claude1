@@ -20,9 +20,31 @@
 | UI 라이브러리 | Ant Design (antd) | `Steps` 컴포넌트로 결재선 진행상황 UI 구현, `Table`/`Form`으로 관리자 화면 구현 |
 | DB | PostgreSQL | Row-Level Security(RLS)로 tenant_id 격리를 DB 레벨에서 강제 |
 | 인증 | Spring Security OAuth2/OIDC | birtyworks SSO 연동 + 자체가입(이메일 인증) 병행 |
-| 배포 | Docker 컨테이너화 | 온프레미스 서버에 배포 |
+| 서버 OS | **Windows Server** | 사내 서버가 Windows 환경 — Docker는 사용하지 않음 |
+| 배포 | **Spring Boot를 Windows Service로 등록 + IIS 리버스프록시** | 아래 "배포 아키텍처" 참고 |
 
 프론트엔드/백엔드는 별개 프로젝트로 분리 개발하며, 백엔드가 REST API를 제공하고 프론트엔드는 이를 호출해 화면을 그리는 구조입니다.
+
+## 배포 아키텍처 (Windows Server)
+
+```
+[사용자 브라우저]
+        │ HTTPS (443)
+        ▼
+   IIS (윈도우 서버, 80/443)
+   - 정적파일(React 빌드 결과물) 직접 서빙
+   - /api/* 요청은 리버스프록시로 아래에 전달
+        │ (내부, 예: localhost:8080)
+        ▼
+   Spring Boot (Windows Service로 등록, 내장 톰캣)
+        ▼
+   PostgreSQL
+```
+
+- **Spring Boot 서비스화**: JAR을 그냥 실행해두면 재부팅/장애 시 안 살아나므로, **WinSW** 또는 **NSSM** 중 하나로 Windows Service에 등록한다 (부팅 시 자동 시작, 크래시 시 자동 재시작)
+- **IIS 리버스프록시**: 기본 IIS에는 리버스프록시 기능이 없으므로 **URL Rewrite**, **Application Request Routing(ARR)** 모듈을 추가 설치해야 한다. `/api/*` 요청을 Spring Boot 포트(예: 8080)로 프록시하는 규칙을 설정한다
+- **정적 프론트엔드**: React 빌드 결과물은 IIS 사이트 폴더에 배치해 IIS가 직접 서빙한다 (별도 Node 서버 불필요)
+- **배치 작업**: POP3 폴링, 인사DB 동기화 반영 등은 별도 Windows 작업 스케줄러 없이 Spring Boot 내장 스케줄러(`@Scheduled`)로 처리 — 서비스가 떠 있는 동안 자동 실행됨
 
 ## 핵심 아키텍처 원칙 (반드시 지킬 것)
 
