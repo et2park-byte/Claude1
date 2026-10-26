@@ -1,0 +1,66 @@
+<approval>
+   <apptitle>안전작업 허가서</apptitle>
+   <appdata>
+        <SITE>본사</SITE>
+        <WT_HOT>해당</WT_HOT>
+        <WT_CONFINED>미해당</WT_CONFINED>
+        <WT_PAINT>미해당</WT_PAINT>
+        <WT_SCAFFOLD>미해당</WT_SCAFFOLD>
+        <WT_HEIGHT>미해당</WT_HEIGHT>
+        <WT_CLEAN>미해당</WT_CLEAN>
+        <WT_ELEC>미해당</WT_ELEC>
+        <WT_OTHER>미해당</WT_OTHER>
+        <WT_OTHER_TEXT></WT_OTHER_TEXT>
+        <HR_YN>아니오</HR_YN>
+        <HR_WELD>미해당</HR_WELD>
+        <HR_CUT>미해당</HR_CUT>
+        <HR_DRILL>미해당</HR_DRILL>
+        <DEPT>IT운영팀</DEPT>
+        <SUPERVISOR_NAME>홍길동</SUPERVISOR_NAME>
+        <SUPERVISOR_TEL>010-0000-0000</SUPERVISOR_TEL>
+        <WORK_YEAR>2026년</WORK_YEAR>
+        <WORK_MONTH>10월</WORK_MONTH>
+        <WORK_DAY>26일</WORK_DAY>
+        <START_TIME>09:00</START_TIME>
+        <END_TIME>18:00</END_TIME>
+        <WORK1_DESC>설비 점검</WORK1_DESC>
+        <WORK1_LOC>본사 3층</WORK1_LOC>
+        <WORK1_REMARK></WORK1_REMARK>
+        <WORK2_DESC></WORK2_DESC>
+        <WORK2_LOC></WORK2_LOC>
+        <WORK2_REMARK></WORK2_REMARK>
+        <WORK3_DESC></WORK3_DESC>
+        <WORK3_LOC></WORK3_LOC>
+        <WORK3_REMARK></WORK3_REMARK>
+        <WORKER_COUNT>2</WORKER_COUNT>
+        <WORKER_NAMES>홍길동, 김철수</WORKER_NAMES>
+        <CHK01>적합</CHK01>
+        <CHK02>적합</CHK02>
+        <CHK03></CHK03>
+        <CHK04></CHK04>
+        <CHK05></CHK05>
+        <CHK06></CHK06>
+        <CHK07></CHK07>
+        <CHK08></CHK08>
+        <CHK09></CHK09>
+        <CHK10></CHK10>
+        <CHK11></CHK11>
+        <CHK12></CHK12>
+        <CHK13></CHK13>
+        <CHK14></CHK14>
+        <CHK15></CHK15>
+        <CHK16></CHK16>
+        <CHK17></CHK17>
+        <CHK18></CHK18>
+        <CHK19></CHK19>
+        <CHK20></CHK20>
+        <CHK21></CHK21>
+        <CHK22></CHK22>
+        <CHK23></CHK23>
+        <CHK24></CHK24>
+        <APPLICANT_NAME>홍길동</APPLICANT_NAME>
+        <APPLICANT_CONFIRM>확인</APPLICANT_CONFIRM>
+        <APPLICANT_TEL>010-1111-2222</APPLICANT_TEL>
+        <MEASURES>안전모 착용 철저</MEASURES>
+    </appdata>
+</approval>
